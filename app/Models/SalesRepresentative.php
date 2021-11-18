@@ -16,7 +16,9 @@ class SalesRepresentative extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'commision_percentage', 'tax_rate'
+        'commission_percentage',
+        'tax_rate',
+        'name',
     ];
 
     /**

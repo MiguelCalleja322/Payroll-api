@@ -42,8 +42,12 @@ class AuthService
         return response()->json(['access_token' => $accessToken->id . '|' . $plainTextToken]);
     }
 
-    public static function get()
+    public static function getAuthUser()
     {
-        return response()->json(Auth::user());
+        return response()->json(
+            [
+                'user' => Auth::user()->name
+            ]
+        );
     }
 }

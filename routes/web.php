@@ -18,6 +18,10 @@ $router->group(['prefix' => 'auth'], function () use ($router) {
     $router->post('login', ['uses' => 'AuthController@login']);
 
     $router->group(['middleware' => 'auth'], function () use ($router) {
-        $router->get('get', ['users' => 'AuthController@get']);
+        $router->get('get', ['uses' => 'AuthController@getAuthUser']);
+        $router->group(['prefix' => 'salesrep'], function () use ($router) {
+            $router->get('', ['uses' => 'SalesRepController@index']);
+            $router->post('', ['uses' => 'SalesRepController@store']);      
+        });
     });
 });

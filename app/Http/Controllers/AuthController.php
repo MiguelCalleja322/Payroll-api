@@ -18,8 +18,8 @@ class AuthController extends Controller
         return AuthService::signup($request);
     }
 
-    public function get()
+    public function getAuthUser()
     {
-        return AuthService::get();
+        return AuthService::getAuthUser();
     }
 }

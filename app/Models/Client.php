@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class SalesRepresentative extends Model
+class Client extends Model
 {
     use HasFactory;
 
@@ -16,7 +16,7 @@ class SalesRepresentative extends Model
      * @var array
      */
     protected $fillable = [
-        'sr_id', 'name'
+        'sr_id', 'name', 
     ];
 
     /**
