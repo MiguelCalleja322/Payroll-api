@@ -7,7 +7,8 @@ use App\Http\Requests\SignupRequest;
 use App\Models\AccessToken;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use Str;
+use Illuminate\Support\Str;
+use Auth;
 
 class AuthService
 {
@@ -22,7 +23,7 @@ class AuthService
             ]);
         };
 
-        return response()->json($accessToken->id, $plainTextToken);
+        return response()->json(['access_token' => $accessToken->id . '|' . $plainTextToken]);
     }
 
     public static function signup(SignupRequest $request)
@@ -38,6 +39,11 @@ class AuthService
             'token' => hash('sha256', $plainTextToken = Str::random(40)),
         ]);
 
-        return response()->json($accessToken->id, $plainTextToken);
+        return response()->json(['access_token' => $accessToken->id . '|' . $plainTextToken]);
+    }
+
+    public static function get()
+    {
+        return response()->json(Auth::user());
     }
 }

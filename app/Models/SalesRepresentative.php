@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class AccessToken extends Model
+class SalesRepresentative extends Model
 {
     use HasFactory;
 
@@ -16,7 +16,7 @@ class AccessToken extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'token'
+        'name', 'commision_percentage', 'tax_rate'
     ];
 
     /**
@@ -27,9 +27,4 @@ class AccessToken extends Model
     protected $hidden = [
         'user_id', 'id','updated_at'
     ];
-
-
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
 }
