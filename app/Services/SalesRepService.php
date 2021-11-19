@@ -10,7 +10,7 @@ class SalesRepService
     public static function index()
     {
         return response()->json([
-            'slesrep' => SalesRepresentative::get()
+            'salesrep' => SalesRepresentative::get()
         ]);
     }
 
@@ -21,6 +21,7 @@ class SalesRepService
             'name' => $request->input('name'),
             'commission_percentage' => $request->input('commission_percentage'),
             'tax_rate' => $request->input('tax_rate'),
+            'bonuses' => $request->input('bonuses'),
         ]);
 
         return response()->json($sales);

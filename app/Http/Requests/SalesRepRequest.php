@@ -16,7 +16,8 @@ class SalesRepRequest extends FormRequest
         return [
             'name' => 'required|string',
             'commission_percentage' => 'required|numeric|between:0,99.99',
-            'tax_rate' => 'required|numeric|between:0,99.99'
+            'tax_rate' => 'required|numeric|between:0,99.99',
+            'bonuses' => 'required|numeric|between:0,99.99',
         ];
     }
 
@@ -29,6 +30,8 @@ class SalesRepRequest extends FormRequest
             'commission_percentage.numeric' => 'Commission percentage be a decimal.',
             'tax_rate.required' => 'Tax rate is Required',
             'tax_rate.numeric' => 'Tax rate must be a decimal.',
+            'bonuses.required' => 'Bonuses is Required',
+            'bonuses.numeric' => 'Bonuses must be a decimal.',
            
         ];
     }

@@ -19,6 +19,7 @@ class SalesRepresentative extends Model
         'commission_percentage',
         'tax_rate',
         'name',
+        'bonuses'
     ];
 
     /**
@@ -27,6 +28,6 @@ class SalesRepresentative extends Model
      * @var array
      */
     protected $hidden = [
-        'user_id', 'id','updated_at'
+        'user_id','updated_at'
     ];
 }

@@ -16,8 +16,9 @@ class CreateSalesRepresentativesTable extends Migration
         Schema::create('sales_representatives', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('commission_percentage');
-            $table->integer('tax_rate');
+            $table->double('commission_percentage');
+            $table->double('tax_rate');
+            $table->double('bonuses');
             $table->timestamps();
         });
     }
