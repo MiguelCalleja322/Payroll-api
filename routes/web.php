@@ -23,5 +23,18 @@ $router->group(['prefix' => 'auth'], function () use ($router) {
             $router->get('', ['uses' => 'SalesRepController@index']);
             $router->post('', ['uses' => 'SalesRepController@store']);      
         });
+
+        $router->group(['prefix' => 'commission'], function () use ($router) {
+            $router->get('', ['uses' => 'CommissionController@index']);
+            $router->post('', ['uses' => 'CommissionController@store']);      
+        });
+
+        $router->group(['prefix' => 'client'], function () use ($router) {
+            $router->get('', ['uses' => 'ClientController@index']);
+        });
+
+        $router->group(['prefix' => 'sales'], function () use ($router) {
+            $router->get('', ['uses' => 'SalesController@index']);
+        });
     });
 });

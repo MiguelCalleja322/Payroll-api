@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class SalesRepresentative extends Model
+class Commission extends Model
 {
     use HasFactory;
 
@@ -16,10 +16,12 @@ class SalesRepresentative extends Model
      * @var array
      */
     protected $fillable = [
-        'commission_percentage',
-        'tax_rate',
-        'name',
-        'bonuses'
+        'sales_rep_id',
+        'sales_id',
+        'commission',
+        'bonus',
+        'slug',
+        'payslip_date'
     ];
 
     /**
@@ -28,14 +30,11 @@ class SalesRepresentative extends Model
      * @var array
      */
     protected $hidden = [
-        'updated_at'
+        'user_id','updated_at',
+        'sales_rep_id'
     ];
 
-    public function commission () {
-        return $this->hasMany(Commission::class);
-    }
-
-    public function sales () {
-        return $this->hasMany(Sales::class);
+    public function sales_representative () {
+        return $this->belongsTo(SalesRepresentative::class);
     }
 }
