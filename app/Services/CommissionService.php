@@ -10,6 +10,15 @@ use Illuminate\Support\Str;
 use DB;
 class CommissionService
 {
+    
+    public static function index()
+    {
+        $commission = Commission::with('salesRepresentative')->get();
+        return response()->json([
+            'commission' => $commission,
+        ]);
+    }
+
     public static function show($slug)
     {
         $commission = Commission::with('salesRepresentative')

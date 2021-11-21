@@ -25,6 +25,7 @@ $router->group(['prefix' => 'auth'], function () use ($router) {
         });
 
         $router->group(['prefix' => 'commission'], function () use ($router) {
+            $router->get('', ['uses' => 'CommissionController@index']);
             $router->get('{slug}', ['uses' => 'CommissionController@show']);
             $router->post('', ['uses' => 'CommissionController@store']);      
         });
