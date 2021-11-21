@@ -8,9 +8,9 @@ use App\Services\CommissionService;
 
 class CommissionController extends Controller
 {
-    public function index()
+    public function show($slug)
     {
-        return CommissionService::index();
+        return CommissionService::show($slug);
     }
 
     public function store(CommissionRequest $request)

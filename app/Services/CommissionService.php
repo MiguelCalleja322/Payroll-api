@@ -7,11 +7,20 @@ use App\Models\Client;
 use App\Models\Commission;
 use App\Models\Sales;
 use Illuminate\Support\Str;
-
+use DB;
 class CommissionService
 {
-    public static function index()
+    public static function show($slug)
     {
+        $commission = Commission::with('salesRepresentative')
+        ->where('slug', $slug)->first();
+
+        $sales = Sales::with('client')->where('id', $commission->sales_id)->first();
+        
+        return response()->json([
+            'commission' => $commission,
+            'sales' => $sales
+        ]);
     }
 
     public static function store(CommissionRequest $request)

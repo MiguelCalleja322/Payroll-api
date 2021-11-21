@@ -34,7 +34,11 @@ class Commission extends Model
         'sales_rep_id'
     ];
 
-    public function sales_representative () {
-        return $this->belongsTo(SalesRepresentative::class);
+    public function salesRepresentative () {
+        return $this->belongsTo(SalesRepresentative::class, 'sales_rep_id', 'id');
+    }
+
+    public function sales () {
+        return $this->belongsTo(Sales::class, 'id', 'sales_id');
     }
 }

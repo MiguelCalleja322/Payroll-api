@@ -34,4 +34,8 @@ class Sales extends Model
     public function sales_rep () {
         return $this->belongsTo(SalesRepresentative::class);
     }
+
+    public function client () {
+        return $this->belongsTo(Client::class);
+    }
 }
